@@ -1,4 +1,4 @@
-var baseUrl = 'http://localhost:6059/';
+var baseUrl = 'http://localhost:6058/';
 // var baseUrl = 'https://subdomain.myumkm.com/';
 
 // Constanta

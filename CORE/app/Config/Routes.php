@@ -55,21 +55,6 @@ function fcCommercial($routes)
     // Home page
     $routes->get('/', [Commercial\HomePage::class, 'index']);
 
-    // Contact page
-    $routes->get('contact', [Commercial\Contact::class, 'index']);
-
-    // Catalog page
-    $routes->get('product', [Commercial\Catalog\Product\Category::class, 'index']);
-    $routes->get('product/(:segment)', [Commercial\Catalog\Product\Category::class, 'index/$1']);
-    $routes->get('product/catalog/(:segment)', [Commercial\Catalog\Product\Catalog::class, 'index/$1']);
-
-    $routes->get('service', [Commercial\Catalog\Service::class, 'index']);
-    $routes->get('service/(:segment)', [Commercial\Catalog\Service::class, 'index/$1']);
-
-    // Blog page
-    $routes->get('blog', [Commercial\BlogPage::class, 'index']);
-    $routes->get('blog/(:segment)', [Commercial\BlogPage::class, 'index/$1']);
-
     // 404
     $routes->get('(:any)', [Commercial::class, 'error404']);
 }

@@ -17,19 +17,19 @@
             </div>
 
             <div class="block mt1c5">
-                <a href="<?= base_url('product'); ?>" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
+                <a href="#product" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
                     Produk
                 </a>
 
-                <a href="<?= base_url('service'); ?>" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
+                <a href="#service" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
                     Layanan
                 </a>
 
-                <a href="<?= base_url('blog'); ?>" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
-                    Blog
+                <a href="#portofolio" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
+                    Portofolio
                 </a>
 
-                <a href="<?= base_url('contact'); ?>" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
+                <a href="#contact" class="button1" style="--bt_bg: transparent; --bt_border_color: transparent; --bt_color: rgb(50, 50, 50);">
                     Kontak
                 </a>
             </div>

@@ -19,11 +19,11 @@ class ControllerPreProcessor extends BaseController
         return [
             'title' => 'MyUMKM.com',
             'description' => 'Profil MyUMKM.com',
-            'img_url' => cdnURL('logo/original/origin_full_v1.svg'),
+            'img_url' => cdnURL('logo/original/origin_simplied_v1.svg'),
             'current_url' => (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]",
             'keywords', 'website, company profile',
             'site_name' => 'MyUMKM.com',
-            'site_icon' => cdnURL('logo/original/origin_full_v1.svg')
+            'site_icon' => cdnURL('logo/original/origin_simplied_v1.svg')
         ];
     }
 

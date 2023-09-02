@@ -4,6 +4,7 @@ namespace App\Controllers\Commercial;
 
 use App\Controllers\ControllerPreProcessor;
 use App\Models\Catalog\CatalogCategory;
+use App\Models\Portofolio;
 use App\Models\AppManifest;
 
 class CommercialController extends ControllerPreProcessor
@@ -64,6 +65,7 @@ class CommercialController extends ControllerPreProcessor
     private function initAddon()
     {
 
+        $portofolio = (new Portofolio())->all(['limit' => [12]]);
         $ownerContact = (new AppManifest())->ownerContact();
 
         return [
@@ -75,7 +77,8 @@ class CommercialController extends ControllerPreProcessor
             'marketplace' => $ownerContact['marketplace'],
             'catalog_category' => $this->catCategory(1),
             'seller_name' => $ownerContact['site_name'],
-            'current_url' => $this->getMeta('current_url')
+            'current_url' => $this->getMeta('current_url'),
+            'portofolio' => $portofolio
         ];
     }
 

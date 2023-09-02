@@ -1,0 +1,5 @@
+**/desktop.ini
+**/CORE/writable/*
+**/CORE/vendor/*
+**/CORE/assets/image/*
+**/CORE/app/Config/Paths.php
