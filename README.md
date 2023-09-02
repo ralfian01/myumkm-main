@@ -1,4 +1,4 @@
-<h1>MyUMKM Regular Website</h1>
+<h1>MyUMKM Main Website</h1>
 This repository holds common files used for regular myumkm.com website projects
 
 <h2>Requirement</h2>
