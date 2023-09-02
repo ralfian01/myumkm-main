@@ -135,7 +135,7 @@
                     Apa yang kami tawarkan untuk anda?
                 </div>
 
-                <div class="mt2 anim_on_scroll anim_typing_word">
+                <div class="mt2 anim_on_scroll anim_typing_word" style="visibility: hidden;">
                     Kami menawarkan layanan unggulan dalam pembuatan website company profile yang dirancang untuk memenuhi kebutuhan bisnis Anda dengan segala kemudahan dan harga yang terjangkau.
                 </div>
             </div>
@@ -158,7 +158,7 @@
 
                     <hr class="sg_line3 mx0 mb_mxa" style="border-color: #fff; max-width: 100px;">
 
-                    <div class="mt2 anim_on_scroll anim_typing_word">
+                    <div class="mt2 anim_on_scroll anim_typing_word" style="visibility: hidden;">
                         Pengalaman kami dalam pengembangan web memungkinkan kami menyediakan fitur-fitur yang beragam, memastikan bahwa website Anda tidak hanya tampak menarik, tetapi juga fungsional.
                     </div>
                 </div>
@@ -197,7 +197,7 @@
 
             <?php foreach ($list as $key => $val) : ?>
 
-                <div class="borad5 p3 mx1 mb2c5 mb_mx0 mb_p2" style="box-sizing: border-box; display: inline-block; vertical-align: top; width: 100%; max-width: 400px; background: #fff; box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.08);">
+                <div class="borad5 p3 mx1 mb2c5 mb_mx0 mb_p2 anim_on_scroll anim_fadein" style="visibility: hidden; box-sizing: border-box; display: inline-block; vertical-align: top; width: 100%; max-width: 400px; background: #fff; box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.08);">
                     <img src="<?= cdnURL("image/{$val['img']}"); ?>" alt="" style="width: 100%; max-width: 200px; height: 130px; object-fit: contain;">
 
                     <div class="block mt2">
@@ -235,7 +235,7 @@
 
                 <?php foreach ($portofolio as $key => $val) : ?>
 
-                    <a href="<?= $val['url']; ?>" target="_blank" class="card1 mx0c5 mb2" style="border-color: rgb(230, 230, 230); width: 100%; max-width: <?= count($portofolio) % 2 == 0 ? '320px' : '400px'; ?>; box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);">
+                    <a href="<?= $val['url']; ?>" target="_blank" class="card1 mx0c5 mb2 anim_on_scroll anim_fadein" style="visibility: hidden; border-color: rgb(230, 230, 230); width: 100%; max-width: <?= count($portofolio) % 2 == 0 ? '320px' : '400px'; ?>; box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);">
                         <div class="card_img">
                             <div class="image" style="padding-bottom: 55%;">
                                 <img src="<?= cdnURL("image/{$val['image_path']}"); ?>" alt="">
@@ -321,7 +321,7 @@
 
             <?php foreach ($contact as $key => $val) : ?>
 
-                <a href="<?= $val['url']; ?>" class="borad5 p3 mx1 mb2c5 mb_mx0 mb_p2" style="color: inherit; text-decoration: none; box-sizing: border-box; display: inline-block; vertical-align: top; width: 100%; max-width: 400px; background: #fff; box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.08);">
+                <a href="<?= $val['url']; ?>" class="borad5 p3 mx1 mb2c5 mb_mx0 mb_p2 anim_on_scroll anim_fadein" style="visibility: hidden; color: inherit; text-decoration: none; box-sizing: border-box; display: inline-block; vertical-align: top; width: 100%; max-width: 400px; background: #fff; box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.08);">
 
                     <i class="<?= $val['icon']; ?> tx_w_regular tx_bg6" style="color: var(--bg_theme1);"></i>
 
@@ -505,156 +505,152 @@
     </div>
 
     <!-- Review -->
-    <div id="review" class="block px3 py7 mb_px2 mb_py3" style="background: var(--bg_theme2); color: #fff;">
+    <?php if (isset($review) && count($review) >= 1) : ?>
 
-        <div class="tx_al_ct tx_bg2 tx_w_bolder mb_tx_bg1">
-            Ulasan
-        </div>
+        <div id="review" class="block px3 py7 mb_px2 mb_py3" style="background: var(--bg_theme2); color: #fff;">
 
-        <hr class="sg_line3 mxa" style="border-color: #fff; max-width: 70px;">
-
-        <div class="tx_al_ct mxa mt2" style="max-width: var(--ctn_max_width);">
-            Lihat bagaimana klien kami memberi penilaian atas pelayanan kami
-        </div>
-
-        <?php
-        $list = [
-            ['name' => 'Rifky Alfian', 'review' => 'Tampilan halaman admin sederhana dan mudah dipahami. Memudahkan saya untuk mengelola konten di dalam website.', 'profession' => 'Full-stack developer'],
-            ['name' => 'Muhammad Rifky', 'review' => 'Optimasi gambar dengan format webp. Ukuran file lebih kecil tanpa menurunkan kualitas.', 'profession' => 'Software developer'],
-            ['name' => 'Muhammad Rifky Alfian', 'review' => 'Website berkualitas dan ramah dikantong para pelaku UMKM. Semoga sukses terus untuk MYUMKM.COM', 'profession' => 'Pelaku UMKM'],
-        ];
-        ?>
-
-        <?php foreach ($list as $key => $val) : ?>
-
-            <input type="hidden" name="reviews[]" value="<?= base64_encode(json_encode($val)); ?>">
-
-        <?php endforeach; ?>
-
-        <div class="block mxa mt5 tx_bg0c5 px3 mb_px1" style="max-width: 600px">
-
-            <div class="review_target">
-
-                <!--  -->
-
+            <div class="tx_al_ct tx_bg2 tx_w_bolder mb_tx_bg1">
+                Ulasan
             </div>
 
-            <div class="flex flex_gap3 y_center x_center mt2">
+            <hr class="sg_line3 mxa" style="border-color: #fff; max-width: 70px;">
 
-                <div class="flex_child fits">
-                    <button id="prev" class="button1 tx_bg0c5" style="background: none !important; border-color: #fff !important; border-radius: 1000px; height: 40px; width: 40px;">
-                        <i class="ri-arrow-left-s-line"></i>
-                    </button>
-                </div>
-
-                <div class="flex_child fits">
-                    <button id="next" class="button1 tx_bg0c5" style="background: none !important; border-color: #fff !important; border-radius: 1000px; height: 40px; width: 40px;">
-                        <i class="ri-arrow-right-s-line"></i>
-                    </button>
-                </div>
-
+            <div class="tx_al_ct mxa mt2" style="max-width: var(--ctn_max_width);">
+                Lihat bagaimana klien kami memberi penilaian atas pelayanan kami
             </div>
-        </div>
 
-        <script type="text/javascript">
-            // 
-            let reviews = document.body.querySelectorAll('#review input[name="reviews[]"]'),
-                currentIndex = 0;
+            <?php foreach ($review as $key => $val) : ?>
 
-            const showReview = function(data, transition) {
+                <input type="hidden" name="reviews[]" value="<?= base64_encode(json_encode($val)); ?>">
 
-                const reviewTarget = document.body.querySelector('#review').querySelector('.review_target');
+            <?php endforeach; ?>
 
-                const pushDOM = () => {
+            <div class="block mxa mt5 tx_bg0c5 px3 mb_px1" style="max-width: 600px">
 
-                    reviewTarget
-                        .innerHTML = `
-                            <div class="block borad10 p2 mb_p2 mxa" style="width: 100%; border: 1px solid #fff;">
+                <div class="review_target">
 
-                                <div class="flex y_center x_between mt2c5" style="--fit_width: 50px; min-height: 100px; position: relative;">
-                                    <div class="flex_child fits" style="min-width: var(--fit_width); max-width: var(--fit_width);">
-                                        <i class="ri-double-quotes-l tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; top: -10px; z-index: 0;"></i>
+                    <!--  -->
+
+                </div>
+
+                <div class="flex flex_gap3 y_center x_center mt2">
+
+                    <div class="flex_child fits">
+                        <button id="prev" class="button1 tx_bg0c5" style="background: none !important; border-color: #fff !important; border-radius: 1000px; height: 40px; width: 40px;">
+                            <i class="ri-arrow-left-s-line"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex_child fits">
+                        <button id="next" class="button1 tx_bg0c5" style="background: none !important; border-color: #fff !important; border-radius: 1000px; height: 40px; width: 40px;">
+                            <i class="ri-arrow-right-s-line"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                // 
+                let reviews = document.body.querySelectorAll('#review input[name="reviews[]"]'),
+                    currentIndex = 0;
+
+                const showReview = function(data, transition) {
+
+                    const reviewTarget = document.body.querySelector('#review').querySelector('.review_target');
+
+                    const pushDOM = () => {
+
+                        reviewTarget
+                            .innerHTML = `
+                                <div class="block borad10 p2 mb_p2 mxa" style="width: 100%; border: 1px solid #fff;">
+    
+                                    <div class="flex y_center x_between mt2c5" style="--fit_width: 50px; min-height: 100px; position: relative;">
+                                        <div class="flex_child fits" style="min-width: var(--fit_width); max-width: var(--fit_width);">
+                                            <i class="ri-double-quotes-l tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; top: -10px; z-index: 0;"></i>
+                                        </div>
+    
+                                        <div class="flex_child tx_al_justify" style="position: relative; z-index: 1;">
+                                            ${data['review']}
+                                        </div>
+    
+                                        <div class="flex_child fits" style="min-width: var(--fit_width); max-width: var(--fit_width);">
+                                            <i class="ri-double-quotes-r tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; bottom: 0; z-index: 0;"></i>
+                                        </div>
                                     </div>
-
-                                    <div class="flex_child tx_al_justify" style="position: relative; z-index: 1;">
-                                        ${data['review']}
+    
+                                    <div class="tx_w_bolder mt2c5 tx_fam_montserrat">
+                                        ${data['name']}
                                     </div>
-
-                                    <div class="flex_child fits" style="min-width: var(--fit_width); max-width: var(--fit_width);">
-                                        <i class="ri-double-quotes-r tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; bottom: 0; z-index: 0;"></i>
+                                    <div class="tx_w_bolder mt0c5">
+                                        ${data['profession']}
                                     </div>
                                 </div>
+                            `;
+                    }
 
-                                <div class="tx_w_bolder mt2c5 tx_fam_montserrat">
-                                    ${data['name']}
-                                </div>
-                                <div class="tx_w_bolder mt0c5">
-                                    ${data['profession']}
-                                </div>
-                            </div>
-                        `;
-                }
+                    switch (transition) {
 
-                switch (transition) {
+                        case 'fadein':
 
-                    case 'fadein':
-
-                        reviewTarget.style.opacity = '0';
-                        reviewTarget.style.transition = '0';
-                        reviewTarget.style.transform = 'translate(0, 50px)';
-
-                        setTimeout(() => {
-
-                            reviewTarget.style.transition = '450ms';
+                            reviewTarget.style.opacity = '0';
+                            reviewTarget.style.transition = '0';
+                            reviewTarget.style.transform = 'translate(0, 50px)';
 
                             setTimeout(() => {
 
-                                reviewTarget.style.opacity = '1';
-                                reviewTarget.style.transform = 'translate(0, 0)';
-
-                                pushDOM();
+                                reviewTarget.style.transition = '450ms';
 
                                 setTimeout(() => {
 
-                                    reviewTarget.style.removeProperty('opacity');
-                                    reviewTarget.style.removeProperty('transform');
-                                    reviewTarget.style.removeProperty('transition');
-                                }, 451);
+                                    reviewTarget.style.opacity = '1';
+                                    reviewTarget.style.transform = 'translate(0, 0)';
+
+                                    pushDOM();
+
+                                    setTimeout(() => {
+
+                                        reviewTarget.style.removeProperty('opacity');
+                                        reviewTarget.style.removeProperty('transform');
+                                        reviewTarget.style.removeProperty('transition');
+                                    }, 451);
+                                }, 1);
                             }, 1);
-                        }, 1);
-                        break;
+                            break;
 
-                    default:
+                        default:
 
-                        pushDOM();
-                        break;
+                            pushDOM();
+                            break;
+                    }
                 }
-            }
 
-            // Show first review data
-            if (reviews.length >= 1)
-                showReview(JSON.parse(atob(reviews[currentIndex].value)));
+                // Show first review data
+                if (reviews.length >= 1)
+                    showReview(JSON.parse(atob(reviews[currentIndex].value)));
 
-            // When button clicked
-            document.body.querySelector('#review').querySelector('button#prev')
-                .addEventListener('click', function(e) {
+                // When button clicked
+                document.body.querySelector('#review').querySelector('button#prev')
+                    .addEventListener('click', function(e) {
 
-                    if (currentIndex == 0) currentIndex = reviews.length - 1;
-                    else currentIndex--;
+                        if (currentIndex == 0) currentIndex = reviews.length - 1;
+                        else currentIndex--;
 
-                    showReview(JSON.parse(atob(reviews[currentIndex].value)), 'fadein');
-                });
+                        showReview(JSON.parse(atob(reviews[currentIndex].value)), 'fadein');
+                    });
 
-            document.body.querySelector('#review').querySelector('button#next')
-                .addEventListener('click', function(e) {
+                document.body.querySelector('#review').querySelector('button#next')
+                    .addEventListener('click', function(e) {
 
-                    if (currentIndex == reviews.length - 1) currentIndex = 0;
-                    else currentIndex++;
+                        if (currentIndex == reviews.length - 1) currentIndex = 0;
+                        else currentIndex++;
 
-                    showReview(JSON.parse(atob(reviews[currentIndex].value)), 'fadein');
-                })
-        </script>
-    </div>
+                        showReview(JSON.parse(atob(reviews[currentIndex].value)), 'fadein');
+                    })
+            </script>
+        </div>
+
+    <?php endif; ?>
 </div>
 
 <script text="text/javascript">
@@ -663,6 +659,8 @@
     HTMLElement.prototype.typingAnimation = function(charOrWord = 'word', typingSpeed = 50) {
 
         const elem = this;
+
+        elem.style.removeProperty('visibility');
 
         const textChar = this.textContent.trim();
         let charIndex = 0;
@@ -693,6 +691,30 @@
         elem.classList.add('anim_running');
     }
 
+    HTMLElement.prototype.fadeInAnimation = function(duration = 300) {
+
+        const elem = this;
+
+        elem.style.removeProperty('visibility');
+
+        elem.style.opacity = '0';
+        elem.style.transition = '0ms';
+        elem.style.transform = 'translate(0, 50px)';
+
+        setTimeout(() => {
+
+            elem.style.transition = duration + 'ms';
+
+            setTimeout(() => {
+
+                elem.style.opacity = '1';
+                elem.style.transform = 'translate(0, 0)';
+            }, 1);
+        }, 1);
+
+        elem.classList.add('anim_running');
+    }
+
     window.onload = function(e) {
 
         document.body.querySelectorAll('*[class*="anim_typing"]:not(.anim_on_scroll):not(.anim_running)')
@@ -715,7 +737,7 @@
 
                 let elemYPos = elem.getBoundingClientRect().y - window.innerHeight;
 
-                if (elemYPos <= 0) {
+                if (elemYPos <= -100) {
 
                     if (elem.classList.contains('anim_typing_word')) {
 
@@ -723,6 +745,9 @@
                     } else if (elem.classList.contains('anim_typing_char')) {
 
                         elem.typingAnimation('char', 30);
+                    } else if (elem.classList.contains('anim_fadein')) {
+
+                        elem.fadeInAnimation();
                     }
                 }
             });

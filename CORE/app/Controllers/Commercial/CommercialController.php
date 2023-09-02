@@ -5,6 +5,7 @@ namespace App\Controllers\Commercial;
 use App\Controllers\ControllerPreProcessor;
 use App\Models\Catalog\CatalogCategory;
 use App\Models\Portofolio;
+use App\Models\Review;
 use App\Models\AppManifest;
 
 class CommercialController extends ControllerPreProcessor
@@ -65,6 +66,7 @@ class CommercialController extends ControllerPreProcessor
     private function initAddon()
     {
 
+        $review = (new Review())->all(['limit' => [6]]);
         $portofolio = (new Portofolio())->all(['limit' => [12]]);
         $ownerContact = (new AppManifest())->ownerContact();
 
@@ -78,7 +80,8 @@ class CommercialController extends ControllerPreProcessor
             'catalog_category' => $this->catCategory(1),
             'seller_name' => $ownerContact['site_name'],
             'current_url' => $this->getMeta('current_url'),
-            'portofolio' => $portofolio
+            'portofolio' => $portofolio,
+            'review' => $review,
         ];
     }
 
