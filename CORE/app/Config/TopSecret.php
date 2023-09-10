@@ -24,8 +24,8 @@ class TopSecret
         'api_key'       => 'aGVsbG93b3JsZF8xMjMxMjM',
         'bearer_key'    => 'q3b0495b8yqn3095qb8y24n60948y9028y0359r8vuyopijn0-9ui-052u309n8y20uq5v46u670',
         'basic_auth'    => [ // Basic auth by pass
-            'user'      => 'dapurfir_user',
-            'pass'      => 'dapurfir_123123'
+            'user'      => 'myu_109y834r232',
+            'pass'      => 'myu_q09q83bt4n9y33w'
         ]
     ];
 

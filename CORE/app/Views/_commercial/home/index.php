@@ -236,7 +236,7 @@
                 <?php foreach ($portofolio as $key => $val) : ?>
 
                     <a href="<?= $val['url']; ?>" target="_blank" class="card1 mx0c5 mb2 anim_on_scroll anim_fadein" style="visibility: hidden; border-color: rgb(230, 230, 230); width: 100%; max-width: <?= count($portofolio) % 2 == 0 ? '320px' : '400px'; ?>; box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);">
-                        <div class="card_img">
+                        <div class="card_img" style="max-width: none;">
                             <div class="image" style="padding-bottom: 55%;">
                                 <img src="<?= cdnURL("image/{$val['image_path']}"); ?>" alt="">
                             </div>
@@ -336,7 +336,7 @@
                 <?php foreach ($social_media as $key => $val) : ?>
                     <?php if (!in_array($val['username'], [null, ''])) : ?>
 
-                        <a href="<?= "{$val['url']}{$val['username']}"; ?>" class="borad5 p3 mx1 mb2c5 mb_mx0 mb_p2" style="color: inherit; text-decoration: none; box-sizing: border-box; display: inline-block; vertical-align: top; width: 100%; max-width: 400px; background: #fff; box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.08);">
+                        <a href="<?= "{$val['url']}{$val['username']}"; ?>" class="borad5 p3 mx1 mb2c5 mb_mx0 mb_p2 anim_on_scroll anim_fadein" style="visibility: hidden; color: inherit; text-decoration: none; box-sizing: border-box; display: inline-block; vertical-align: top; width: 100%; max-width: 400px; background: #fff; box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.08);">
 
                             <?php if (isset($val['img']) && !empty($val['img'])) : ?>
                                 <img src="<?= cdnURL($val['img']); ?>" alt="" style="width: 21px; height: 21px; fit-content: contain;">
@@ -566,21 +566,21 @@
                                 <div class="block borad10 p2 mb_p2 mxa" style="width: 100%; border: 1px solid #fff;">
     
                                     <div class="flex y_center x_between mt2c5" style="--fit_width: 50px; min-height: 100px; position: relative;">
-                                        <div class="flex_child fits" style="min-width: var(--fit_width); max-width: var(--fit_width);">
-                                            <i class="ri-double-quotes-l tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; top: -10px; z-index: 0;"></i>
+                                        <div class="flex_child fits mb_hide" style="min-width: var(--fit_width); max-width: var(--fit_width);">
+                                            <i class="ri-double-quotes-l tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; left: 10px; top: -10px; z-index: 0;"></i>
                                         </div>
     
-                                        <div class="flex_child tx_al_justify" style="position: relative; z-index: 1;">
+                                        <div class="flex_child tx_al_justify mb_tx_al_ct" style="position: relative; z-index: 1;">
                                             ${data['review']}
                                         </div>
     
-                                        <div class="flex_child fits" style="min-width: var(--fit_width); max-width: var(--fit_width);">
-                                            <i class="ri-double-quotes-r tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; bottom: 0; z-index: 0;"></i>
+                                        <div class="flex_child fits mb_hide" style="min-width: var(--fit_width); max-width: var(--fit_width);">
+                                            <i class="ri-double-quotes-r tx_bg6 tx_lh0" style="color: var(--bg_theme2); filter: brightness(70%); position: absolute; right: 10px; bottom: 0; z-index: 0;"></i>
                                         </div>
                                     </div>
     
                                     <div class="tx_w_bolder mt2c5 tx_fam_montserrat">
-                                        ${data['name']}
+                                        <span class="dk_hide tb_hide">-</span> ${data['name']} -
                                     </div>
                                     <div class="tx_w_bolder mt0c5">
                                         ${data['profession']}

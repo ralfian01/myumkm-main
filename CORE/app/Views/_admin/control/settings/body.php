@@ -186,3 +186,18 @@
             });
     </script>
 </div>
+
+<div class="content_box">
+    <div class="box_head">
+        <div class="head_title">
+            <div class="title">
+                Project
+            </div>
+        </div>
+    </div>
+    <div class="box_body">
+        <button class="button1 bt_small">
+            Logout
+        </button>
+    </div>
+</div>

@@ -1,4 +1,3 @@
 <?php
 
-echo FCPATH;
-    // include '../index.php';
+echo 'none';
