@@ -49,6 +49,14 @@ class Updates extends AdminController
 
             // Excecute line below
 
+            // Local commit
+            if ($_ENV['app.baseURL'] == 'https://myumkm.com') {
+
+                exec('git commit -m "Local commit"', $log);
+                print_r($log);
+                echo '<br><br>';
+            }
+
             // Do system update
             exec('git pull https://github.com/ralfian01/myumkm-main.git master', $log);
             print_r($log);
