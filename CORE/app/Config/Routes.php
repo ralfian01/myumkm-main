@@ -119,6 +119,9 @@ function fcAdmin($routes)
         });
     });
 
+    // Update page
+    $routes->get('updates', [Admin\Control\Updates::class, 'index']);
+
     // 404
     $routes->get('(:any)', 'AdminController::error404');
 }
