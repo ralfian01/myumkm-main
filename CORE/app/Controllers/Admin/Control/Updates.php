@@ -50,7 +50,7 @@ class Updates extends AdminController
             // Excecute line below
 
             // Do system update
-            exec('git pull https://github.com/ralfian01/myumkm-main.git', $log);
+            exec('git pull https://github.com/ralfian01/myumkm-main.git master', $log);
             print_r($log);
 
             return;
