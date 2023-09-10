@@ -28,5 +28,5 @@ Then run the command below to run the application on your local system </br>
 </blockquote>
 <b>Run the program using the port set in the <b>.env</b> file</b>
 <blockquote>
-    php spark start 
+    php spark start
 </blockquote>
