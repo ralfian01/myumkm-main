@@ -42,6 +42,7 @@ class Updates extends AdminController
     private function phpExec($command, &$err_code = null, $print = false)
     {
 
+        $log = [0 => "command: {$command}"];
         exec($command, $log, $err_code);
         array_push($log, "status code: {$err_code}");
 
@@ -67,19 +68,29 @@ class Updates extends AdminController
 
             // Check status
             $log = $this->phpExec('git status', $code, true);
-            // if ($log[])
 
-            // // Stash update on local
-            // print_r($this->phpExec('git stash save "Local update"', $code));
+            // If there is an update
+            if (in_array('Changes not staged for commit:', $log)) {
 
-            // // Pull
-            // print_r($this->phpExec('git pull https://github.com/ralfian01/myumkm-main.git master', $code));
+                // Stash update on local
+                $this->phpExec('git stash save "Local update"', $code, true);
+            }
 
-            // // Stash pop: apply changes
-            // print_r($this->phpExec('git stash pop', $code));
+            // Pull
+            $this->phpExec('git pull https://github.com/ralfian01/myumkm-main.git master', $code, true);
 
-            // // Add all
-            // print_r($this->phpExec('git add .', $code));
+            // Check stash
+            $log = $this->phpExec('git stash list', $code, true);
+
+            // If there is stash
+            if (in_array('stash@{0}: On master: Local update', $log)) {
+
+                // Stash pop: apply changes
+                $this->phpExec('git stash pop', $code, true);
+            }
+
+            // Add all
+            $this->phpExec('git add .', $code, true);
 
             // // Commit changes
             // exec('git commit -m "Local commit"', $log, $code5);
