@@ -39,6 +39,17 @@ class Updates extends AdminController
         );
     }
 
+    private function phpExec($command, &$err_code = null)
+    {
+
+        exec($command, $log, $err_code);
+        array_push($log, "status code: {$err_code}");
+
+        echo '<pre>';
+        print_r($log);
+        echo '</pre>';
+    }
+
     // Server Response
     public function index()
     {
@@ -49,29 +60,24 @@ class Updates extends AdminController
 
             // Excecute line below
 
-            // Stash update on local
-            exec('git stash save "Local update"', $log, $code1);
-            echo "CMD1: {$code1}";
+            // Check status
+            print_r($this->phpExec('git status', $code));
 
-            // Pull
-            exec('git pull https://github.com/ralfian01/myumkm-main.git master', $log, $code2);
-            echo "CMD2: {$code2}";
+            // // Stash update on local
+            // print_r($this->phpExec('git stash save "Local update"', $code));
 
-            // Stash pop: apply changes
-            exec('git stash pop', $log, $code3);
-            echo "CMD3: {$code3}";
+            // // Pull
+            // print_r($this->phpExec('git pull https://github.com/ralfian01/myumkm-main.git master', $code));
 
-            // Add all
-            exec('git add .', $log, $code4);
-            echo "CMD4: {$code4}";
+            // // Stash pop: apply changes
+            // print_r($this->phpExec('git stash pop', $code));
 
-            // Commit changes
-            exec('git commit -m "Local commit"', $log, $code5);
-            echo "CMD4: {$code5}";
+            // // Add all
+            // print_r($this->phpExec('git add .', $code));
 
-            echo "<pre>";
-            print_r($log);
-            echo "</pre>";
+            // // Commit changes
+            // exec('git commit -m "Local commit"', $log, $code5);
+            // echo "CMD4: {$code5}<br>";
 
             return;
         }
