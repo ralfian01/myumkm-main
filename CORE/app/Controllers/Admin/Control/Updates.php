@@ -39,15 +39,20 @@ class Updates extends AdminController
         );
     }
 
-    private function phpExec($command, &$err_code = null)
+    private function phpExec($command, &$err_code = null, $print = false)
     {
 
         exec($command, $log, $err_code);
         array_push($log, "status code: {$err_code}");
 
-        echo '<pre>';
-        print_r($log);
-        echo '</pre>';
+        if ($print) {
+
+            echo "<pre>";
+            print_r($log);
+            echo "</pre>";
+        }
+
+        return $log;
     }
 
     // Server Response
@@ -61,7 +66,8 @@ class Updates extends AdminController
             // Excecute line below
 
             // Check status
-            print_r($this->phpExec('git status', $code));
+            $log = $this->phpExec('git status', $code, true);
+            // if ($log[])
 
             // // Stash update on local
             // print_r($this->phpExec('git stash save "Local update"', $code));
