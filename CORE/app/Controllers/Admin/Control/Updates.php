@@ -92,9 +92,11 @@ class Updates extends AdminController
             // Add all
             $this->phpExec('git add .', $code, true);
 
-            // // Commit changes
-            // exec('git commit -m "Local commit"', $log, $code5);
-            // echo "CMD4: {$code5}<br>";
+            if ("{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}" != "localhost:{$_ENV['LOCAL_PORT']}") {
+
+                // Commit changes
+                $this->phpExec('git commit -m "Local commit"', $code, true);
+            }
 
             return;
         }
