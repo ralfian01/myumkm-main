@@ -49,17 +49,29 @@ class Updates extends AdminController
 
             // Excecute line below
 
-            // Local commit
-            if ($_ENV['app.baseURL'] == 'https://myumkm.com') {
+            // Stash update on local
+            exec('git stash save "Local update"', $log, $code1);
+            echo "CMD1: {$code1}";
 
-                exec('git commit -m "Local commit"', $log);
-                print_r($log);
-                echo '<br><br>';
-            }
+            // Pull
+            exec('git pull https://github.com/ralfian01/myumkm-main.git master', $log, $code2);
+            echo "CMD2: {$code2}";
 
-            // Do system update
-            exec('git pull https://github.com/ralfian01/myumkm-main.git master', $log);
+            // Stash pop: apply changes
+            exec('git stash pop', $log, $code3);
+            echo "CMD3: {$code3}";
+
+            // Add all
+            exec('git add .', $log, $code4);
+            echo "CMD4: {$code4}";
+
+            // Commit changes
+            exec('git commit -m "Local commit"', $log, $code5);
+            echo "CMD4: {$code5}";
+
+            echo "<pre>";
             print_r($log);
+            echo "</pre>";
 
             return;
         }
